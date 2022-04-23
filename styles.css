@@ -92,3 +92,13 @@ header ul li{
     }
     
 }
+
+@media (max-width:390px) {
+    #result{
+        font-size: 20px;
+        margin-top: 10px;
+        color: rgb(7, 2, 97);
+        font-weight: 700;
+    }
+    
+}
