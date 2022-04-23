@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #ede483;
+}
+
+header{
+    background-color: black;
+    color: white;
+    padding: 15px;
+}
+
+header ul li{
+    list-style: none;
+    font-size: 23px;
+
+}
+
+.outerContainer{
+    margin-top: 15px;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.uiContainer{
+    display: grid;
+    grid-template-columns: 130px 130px 130px;
+    margin-top: 20px;
+}
+
+.box{
+    height: 110px;
+    width: 130px;
+    background-color: #ff1460;
+    border: 3.5px solid black;
+    font-size: 70px;
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+.uiContainer a{
+    text-decoration: none;
+}
+
+.players{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.player{
+    font-size: 25px;
+    margin: 10px;
+}
+
+#btn{
+    font-size: 18px;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#result{
+    font-size: 40px;
+    margin-top: 15px;
+    color: rgb(7, 2, 97);
+    font-weight: 800;
+}
+
+@media (max-width:590px) {
+    #result{
+        font-size: 30px;
+        margin-top: 10px;
+        color: rgb(7, 2, 97);
+        font-weight: 700;
+    }
+    
+}
