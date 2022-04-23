@@ -216,7 +216,7 @@ function fun(e){
             // console.log(`${turn} Won`);
             let result = document.getElementById("result");
             let name=turn=='X'?'Player 1':'Player 2';
-            result.innerText = `Congratulations ${name} Won`;
+            result.innerText = `Congrats ${name} Won`;
             setTimeout(() => {
                 result.innerText = ""; 
             }, 3000);
