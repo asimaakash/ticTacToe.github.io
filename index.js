@@ -259,5 +259,7 @@ function resetScore()
 {
     localStorage.setItem("player1",0);
     localStorage.setItem("player2",0);
+    reset();
+    changeStart=0;
     displayScore('N');
 }
