@@ -236,7 +236,7 @@ function fun(e){
             
         }
         let full = checkFull(arr);
-        if(full)
+        if(full && !bool)
         {
             let result = document.getElementById("result");
             result.innerText = `Match Draw, Play Again (:`;
