@@ -22,9 +22,9 @@ function Validate(id)
     }
 }
 
-function markBox(id){
+function markBox(id,changeStart){
     let boxes = document.getElementsByClassName("box");
-    let count=0;
+    let count=0,first,second;
     let mBox = document.getElementById(id); 
     // console.log();
     
@@ -32,22 +32,33 @@ function markBox(id){
         if(boxes[i].innerText.length>0)
             count++;
     }
+    if(changeStart%2==0)
+    {
+        first = 'X';
+        second = 'O';
+    }
+    else{
+        first = 'O';
+        second = 'X';
+    }
     if(count%2==0){
-        mBox.innerText = 'X';
+        mBox.innerText = first;
     }
     else {
-        mBox.innerText = 'O';
+        mBox.innerText = second;
     }
     if(count%2==0)
-        return('X');
+        return(first);
     else
-        return('O');
+        return(second);
 
 }
 
 function formArray(){
     let boxes = document.getElementsByClassName("box");
     let arr = [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]];
+ 
+
 
     for(let i=0;i<9;i++){
         if(boxes[i].innerText.length>0)
@@ -77,7 +88,7 @@ function formArray(){
 
 function checkWin(arr,turn)
 {
-    console.log(JSON.stringify(arr[0])==JSON.stringify([1,-1,-1]));
+    // console.log(JSON.stringify(arr[0])==JSON.stringify([1,-1,-1]));
     //Checking Horrizontally 
     let val;
     if(turn=='X')
@@ -201,16 +212,15 @@ function displayScore(turn){
     p2.innerText = p2Score;
 
 }
+let changeStart=0;
 
 function fun(e){
-    console.log("Clicked");
-    // console.log(e.target.id);
-    // let boxChild = document.getElementById(e.target.id);
+
     
     if(Validate(e.target.id)){
-        let turn = markBox(e.target.id);
-        let arr = formArray();
-        let bool = checkWin(arr,turn);
+        let turn = markBox(e.target.id,changeStart);
+        let arr = formArray(changeStart);
+        let bool = checkWin(arr,turn);        
         if(bool)
         {
             // console.log(`${turn} Won`);
@@ -222,12 +232,18 @@ function fun(e){
             }, 3000);
             displayScore(turn);
             reset();
+            changeStart+=1;
+            
         }
         let full = checkFull(arr);
         if(full)
         {
             let result = document.getElementById("result");
             result.innerText = `Match Draw, Play Again (:`;
+            reset();
+
+            changeStart+=1;
+
             setTimeout(() => {
                 result.innerText = ""; 
             }, 3000);
